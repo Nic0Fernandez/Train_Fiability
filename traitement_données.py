@@ -1,23 +1,27 @@
 import pandas as pd
-import openpyxl as op
+import seaborn as sns
+import matplotlib.pyplot as plt
 
+columns = ['weeks','Normalized DP (bars)']
 
-data = []
+def traitement_donnees():
+    df = pd.read_excel('Dataset-D.xlsx', sheet_name="Train 2")
+    df = df.loc[:,~df.columns.str.contains('^Unnamed')]
+    df = df.drop(columns=['Day','K','Date','Train Status','Train Status Code','Feed Volume (m3)','Brine Volume (m3)','Product Volume (m3)','Recovery (%)'])
+    df = df.dropna(subset=['Normalized DP (bars)'])
+    return df
 
-# Importation des données
-for i in range(1,15):
-    data.append(pd.read_excel("Projet/Dataset-D.xlsx", sheet_name="Train "+str(i)))
+data = traitement_donnees()
+print(data.corr())
 
-# Traitement des données (suppression des lignes où Normalized DP n'existe pas)
-for i in range(14):
-    data[i] = data[i].dropna(subset=['Normalized DP (bars)'])
+data300 = data[:][:300]
 
-# Affichage des données
-print(data[0])
-print(data[1])
+#sns.lmplot(x="weeks", y="Normalized DP (bars)", data=data300, order=2, ci=None)
+#plt.show()
 
-
-
+#plt.figure(figsize=(10, 8))
+#sns.heatmap(data.corr(), annot=True)
+#plt.show()
 
 
 
