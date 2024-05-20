@@ -22,7 +22,7 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 # Créer un modèle de régression linéaire 
-model = LinearRegression()
+model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X_train,Y_train)
 
 # Prédire les valeurs de test
