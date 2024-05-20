@@ -32,8 +32,8 @@ Y_pred = model.predict(X_test)
 score = r2_score(Y_test,Y_pred)
 rmse = mean_squared_error(Y_test, Y_pred, squared=False)
 
-print("R2:"+ score)
-print("RMSE:"+ rmse)
+print("R2:", score)
+print("RMSE:", rmse)
 
 # Afficher les résultats 
 plt.figure(figsize=(10, 6))
