@@ -1,5 +1,4 @@
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from traitement_données import traitement_donnees
 from sklearn.metrics import r2_score, mean_squared_error
@@ -32,8 +31,8 @@ Y_pred = model.predict(X_test)
 score = r2_score(Y_test,Y_pred)
 rmse = mean_squared_error(Y_test, Y_pred, squared=False)
 
-print("R2:"+ score)
-print("RMSE:"+ rmse)
+print("R2:", score)
+print("RMSE:", rmse)
 
 # Afficher les résultats 
 plt.figure(figsize=(10, 6))

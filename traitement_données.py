@@ -9,7 +9,7 @@ def traitement_donnees():
     df = df.loc[:,~df.columns.str.contains('^Unnamed')]
     df = df.drop(columns=['Day','K','Date','Train Status','Train Status Code','Feed Volume (m3)','Brine Volume (m3)','Product Volume (m3)','Recovery (%)'])
     df = df.dropna(subset=['Normalized DP (bars)'])
-    return df
+    return df[:][:300]
 
 data = traitement_donnees()
 print(data.corr())
