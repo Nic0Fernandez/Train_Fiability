@@ -38,7 +38,7 @@ def MRL(t):
 
 
 time_points = [0, 100, 200, 300]
-#survival_probabilities = kmf.survival_function_at_times(time_points)
-#print(survival_probabilities)
+survival_probabilities = kmf.survival_function_at_times(time_points)
+print(survival_probabilities)
 for i in range (len(time_points)):
     print(MRL(time_points[i]))
