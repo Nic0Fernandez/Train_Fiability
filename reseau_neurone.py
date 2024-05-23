@@ -6,7 +6,6 @@ import tensorflow as tf
 import keras
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error
-from traitement_données import traitement_donnees
 from sklearn.preprocessing import StandardScaler
 
 
@@ -65,7 +64,7 @@ reduce_lr = keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.2, pa
 model.summary()
 
 # Entraînement du modèle
-history = model.fit(X_train, Y_train, epochs=1000, batch_size=32, validation_split=0.2, callbacks=[early_stopping, reduce_lr])
+history = model.fit(X_train, Y_train, epochs=50, batch_size=32, validation_split=0.2, callbacks=[early_stopping, reduce_lr])
 
 # Évaluation du modèle
 results = model.evaluate(X_test, Y_test)
